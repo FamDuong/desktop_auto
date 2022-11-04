@@ -25,7 +25,7 @@ def start_program(executable_path=None):
 
 
 def test_start_program():
-    start_program(executable_path=r'C:\Program Files (x86)\Notepad++\notepad++.exe')
+    start_program(executable_path=r'C:\Program Files\Notepad++\notepad++.exe')
 
 
 
