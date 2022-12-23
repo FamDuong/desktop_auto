@@ -18,3 +18,13 @@ def check_folder_is_exists(directory_with_path):
         return True
     else:
         return False
+
+
+# To check the file is existed or not
+def check_file_is_exists(file_name_with_path):
+    from pathlib import Path
+    my_file = Path(file_name_with_path)
+    if my_file.is_file():
+        return True
+    else:
+        return False

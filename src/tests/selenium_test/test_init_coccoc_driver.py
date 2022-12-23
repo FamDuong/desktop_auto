@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from webdriver_manager.core.utils import ChromeType
 
 from src.utils import chrome_driver_utils
 
@@ -20,9 +21,9 @@ def test_init_coccoc_by_hard_coded_location():
     driver.quit()
 
 
-# need modify.
 def test_init_coccoc_by_webdriver_manager():
     service = ChromeService(executable_path=ChromeDriverManager().install())
+    # service = ChromeService(executable_path=ChromeDriverManager(chrome_type=ChromeType.COCCOC).install())
     options = ChromeOptions()
     options.binary_location = r'C:\Program Files\CocCoc\Browser\Application\browser.exe'
     driver = webdriver.Chrome(service=service, options=options)
@@ -37,5 +38,6 @@ def test_init_coccoc_by_other():
     options.binary_location = r'C:\Program Files\CocCoc\Browser\Application\browser.exe'
     chrome_driver_utils.install()
     driver = webdriver.Chrome(options=options)
+    driver.get('https://google.com')
     time.sleep(5)
     driver.quit()
