@@ -15,6 +15,7 @@ def test_init_coccoc_by_hard_coded_location():
     options = ChromeOptions()
     options.binary_location = r'C:\Program Files\CocCoc\Browser\Application\browser.exe'
     driver = webdriver.Chrome(service=service, options=options)
+    driver.get('https://google.com')
     time.sleep(5)
     driver.quit()
 
@@ -25,6 +26,7 @@ def test_init_coccoc_by_webdriver_manager():
     options = ChromeOptions()
     options.binary_location = r'C:\Program Files\CocCoc\Browser\Application\browser.exe'
     driver = webdriver.Chrome(service=service, options=options)
+    driver.get('https://google.com')
     time.sleep(5)
     driver.quit()
 

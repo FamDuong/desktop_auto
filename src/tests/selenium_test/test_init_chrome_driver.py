@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 def test_init_chrome_by_hard_coded_location():
     service = ChromeService(executable_path=r"C:\WebDriver\bin\chromedriver.exe")
     driver = webdriver.Chrome(service=service)
+    driver.get('https://google.com')
     time.sleep(5)
     driver.quit()
 
@@ -18,5 +19,6 @@ def test_init_chrome_by_hard_coded_location():
 def test_init_chrome_by_webdriver_manager():
     service = ChromeService(executable_path=ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
+    driver.get('https://google.com')
     time.sleep(5)
     driver.quit()
