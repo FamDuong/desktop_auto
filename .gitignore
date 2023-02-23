@@ -1,6 +1,6 @@
 .venv
-src/tests/.pytest_cache
+tests/.pytest_cache
 .idea
 src/__pycache__/
-src/tests/__pycache__/
+tests/__pycache__/
 src/utils/__pycache__/
