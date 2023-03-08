@@ -1,9 +1,11 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
 
 def test_add_to_card(chrome_driver):
-    """Login with valid user"""
+    """LOGIN WITH VALID USER"""
     # Enter the page
     chrome_driver.get('https://www.saucedemo.com/')
     assert chrome_driver.title == 'Swag Labs'
@@ -13,7 +15,6 @@ def test_add_to_card(chrome_driver):
     password: WebElement = chrome_driver.find_element(By.CSS_SELECTOR, 'input[data-test="password"]')
     login_btn: WebElement = chrome_driver.find_element(By.CSS_SELECTOR, 'input[data-test="login-button"]')
 
-    # Interaction methods
     # Enter username & password
     username.clear()
     username.send_keys('standard_user')
@@ -26,14 +27,18 @@ def test_add_to_card(chrome_driver):
     # Verify the title 'Products' is shown
     assert title_products.text == 'Products'
 
-    """select a product"""
+    """SELECT A PRODUCT"""
     btn_add_2_cart_product1 = chrome_driver.find_element(By.CSS_SELECTOR,
                                                          'button[data-test="add-to-cart-sauce-labs-backpack"]')
     btn_add_2_cart_product1.click()
 
-    """goto cart page to check product"""
+    """GO TO CART PAGE AND CHECK"""
     cart_icon: WebElement = chrome_driver.find_element(By.ID, 'shopping_cart_container')
     cart_icon.click()
 
     product1_name: WebElement = chrome_driver.find_element(By.CSS_SELECTOR, 'div[class="inventory_item_name"]')
     assert product1_name.text == 'Sauce Labs Backpack'
+
+    time.sleep(5)
+
+   

@@ -19,6 +19,7 @@ def chrome_driver():
     service = ChromeService(executable_path=ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
 
+    driver.maximize_window()
     # Set implicit wait
     driver.implicitly_wait(10)
 
